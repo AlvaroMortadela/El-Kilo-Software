@@ -1,0 +1,84 @@
+<?= $this->doctype() ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('Arquitectura Mortadela')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <!-- Styles -->
+        <?php $css=$this->headStyle()->addCss($this->serverUrl(true)); if(empty($css)){$css="default.css";} ?>
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/sweetalert.css'))
+            ->prependStylesheet($this->basePath('css/jquery.dataTables.min.css'))
+            ->appendStylesheet($this->basePath('css/'.$css.''))
+
+        ?>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Catalogo Kilo Store</title>
+
+        <!-- Vendors -->
+
+        <!-- Animate CSS -->
+        <link href="vendors\bower_components\animate.css\animate.min.css" rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link href="vendors\bower_components\material-design-iconic-font\dist\css\material-design-iconic-font.min.css" rel="stylesheet">
+
+        <!-- Malihu Scrollbar -->
+        <link href="vendors\bower_components\malihu-custom-scrollbar-plugin\jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+        <!-- Bootgrid -->
+        <link href="vendors\bower_components\jquery.bootgrid\dist\jquery.bootgrid.min.css" rel="stylesheet">
+
+        <!-- Site CSS -->
+        <link href="css\app-1.min.css" rel="stylesheet">
+
+        <!-- Page loader -->
+        <script src="js\page-loader.min.js"></script>
+    </head>
+
+    <body>
+                <?= $this->content ?>
+        </div>
+
+            <footer>
+                <!-- Loading Scripts in the footer -->
+                <?php $js=$this->headScript()->addJs($this->serverUrl(true));
+                if(empty($js)){
+                    $js="default.js";
+                }
+                echo $this->headScript()
+                    ->prependFile($this->basePath('js/bootstrap.min.js'))
+                    ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+                    ->appendFile($this->basePath('js/page-loader.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/bootstrap/dist/js/bootstrap.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/moment/min/moment.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/fullcalendar/dist/fullcalendar.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/salvattore/dist/salvattore.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/flot/jquery.flot.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/flot/jquery.flot.resize.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/flot.curvedlines/curvedLines.js'))
+                    ->appendFile($this->basePath('vendors/jquery.sparkline/jquery.sparkline.min.js'))
+                    ->appendFile($this->basePath('vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js'))
+                    ->appendFile($this->basePath('js/sweetalert.min.js'))
+                    ->appendFile($this->basePath('js/dataTables-min.js'))
+                    ->appendFile($this->basePath('js/'.$js.''));
+                ?>
+                <!----------- End Scripts ----------->
+
+            </footer>
+        </div>
+        <?= $this->inlineScript() ?>
+    </body>
+</html>

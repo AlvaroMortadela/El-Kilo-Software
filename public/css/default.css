@@ -1,0 +1,10 @@
+.default-class{
+    nav-index: auto;
+}
+tr.details-control {
+    cursor: pointer;
+}
+tr.details-control :hover{
+    cursor: pointer;
+    background-color: #0c0c0c;
+}
